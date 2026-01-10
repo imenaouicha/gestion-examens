@@ -3,10 +3,11 @@ import os
 
 def get_connection():
     return psycopg2.connect(
-        host=os.environ.get("DB_HOST", "db.pgnlawlfykbmrivtothz.supabase.co"),
-        database=os.environ.get("DB_NAME", "postgres"),
-        user=os.environ.get("DB_USER", "postgres"),
-        password=os.environ.get("DB_PASS", "imanebdd2003"),
-        port="5432"
+        host=os.environ.get("DB_HOST"),
+        database=os.environ.get("DB_NAME"),
+        user=os.environ.get("DB_USER"),
+        password=os.environ.get("DB_PASSWORD"),
+        port=os.environ.get("DB_PORT", "5432"),
+        sslmode="require"
     )
 
