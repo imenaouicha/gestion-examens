@@ -2,12 +2,8 @@ import psycopg2
 import streamlit as st
 
 def get_connection():
-    # Utilise st.secrets pour Streamlit Cloud
-    return psycopg2.connect(
-        host=st.secrets["DB_HOST"],
-        database=st.secrets["DB_NAME"],
-        user=st.secrets["DB_USER"],
-        password=st.secrets["DB_PASSWORD"],
-        port=st.secrets["DB_PORT"],
-        sslmode="require"
-    )
+    # On construit l'adresse complète directement
+    # Format: postgresql://USER:PASSWORD@HOST:PORT/DATABASE
+    conn_str = f"postgresql://{st.secrets['DB_USER']}:{st.secrets['DB_PASSWORD']}@{st.secrets['DB_HOST']}:{st.secrets['DB_PORT']}/{st.secrets['DB_NAME']}?sslmode=require"
+    
+    return psycopg2.connect(conn_str)
