@@ -1,12 +1,13 @@
 import psycopg2
 import streamlit as st
+import os
 
 def get_connection():
-    # On force les paramètres du pooler
     return psycopg2.connect(
-        host="aws-0-eu-central-1.pooler.supabase.com",
+        # On utilise l'hôte direct mais avec le port du pooler
+        host="db.pgnlawlfykbmrivtothz.supabase.co", 
         database="postgres",
-        user="postgres.pgnlawlfykbmrivtothz",
+        user="postgres", # Ici, on remet juste postgres sans le point
         password=st.secrets["DB_PASSWORD"],
         port=6543,
         sslmode="require"
