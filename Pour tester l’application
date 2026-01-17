@@ -1,0 +1,4 @@
+Pour tester l’application :
+Les comptes de démonstration (emails et mots de passe) sont initialisés automatiquement,Ils sont définis dans le fichier interface/init_users.py
+Ces comptes sont destinés uniquement aux tests et à la démonstration des interfaces.
+Les identifiants présents dans ce projet sont uniquement des données de test et ne doivent pas être utilisés en production.
